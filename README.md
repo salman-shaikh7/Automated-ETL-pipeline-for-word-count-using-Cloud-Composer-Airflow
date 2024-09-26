@@ -61,12 +61,8 @@ gcloud services enable container.googleapis.com
 gcloud services enable composer.googleapis.com
 
 ```
-![alt text](image.png)
 <br>
 <br>
-
-
-
 
 ## Task 2. Create Cloud Composer environment
 
@@ -82,6 +78,8 @@ Below properties
 | Location   | us-central1   | 
 | Image Versio   | composer-3-airflow-n.n.n-build.n    | 
 
+<br>
+
 ![alt text](<screenshot/airflow ui.png>)
 
 ![alt text](screenshot/airflow_env_config.png)
@@ -95,15 +93,40 @@ We will create this bucket using Google cloud UI
 ![alt text](screenshot/buckt_created_ss.png)
 
 
-## Task 4. Defining the workflow
+## Task 3 :  Defining the workflow
 
-Now let's discuss the workflow you'll be using. 
+cloud Composer workflows are comprised of DAGs (Directed Acyclic Graphs). DAGs are defined in standard Python files that are placed in Airflow's DAG_FOLDER. 
 
-loud Composer workflows are comprised of DAGs (Directed Acyclic Graphs). DAGs are defined in standard Python files that are placed in Airflow's DAG_FOLDER. 
+Airflow will execute the code in each file to dynamically build the DAG objects.
 
-Airflow will execute the code in each file to dynamically build the DAG objects. 
+We will develope a workflow in python with file name as *dags.py*
 
-You can have as many DAGs as you want, each describing an arbitrary number of tasks. 
+[Link dags.py file in repo](https://github.com/salman-shaikh7/Automated-ETL-pipeline-for-word-count-using-Cloud-Composer-Airflow/blob/main/dags.py)
 
-In general, each one should correspond to a single logical workflow.
+Here's a breakdown of the dags.py code's flow, focusing on conciseness:
+
+
+1.  Imports: Brings in necessary modules for datetime handling, OS interaction, Airflow components, and Dataproc operations.
+
+
+2.  Defines the output path for word count results in Google Cloud Storage (GCS).
+Specifies the Hadoop word count JAR location and input/output arguments.
+Sets up default DAG arguments like start date, retry behavior, and project ID.
+DAG Definition:
+
+3.  Creates a DAG named 'composer_dag_for_wordcount' scheduled to run daily.
+Task Definitions:
+
+4.  create_dataproc_cluster: Creates a Dataproc cluster using specified configurations.
+run_dataproc_hadoop: Executes the Hadoop word count job on the created cluster.
+delete_dataproc_cluster: Deletes the Dataproc cluster after job completion (or failure).
+Task Dependencies:
+
+5.  Ensures tasks run in order: cluster creation -> word count execution -> cluster deletion.
+Simplified Flow:
+
+6.  DAG starts.
+Create Dataproc cluster.
+Run Hadoop word count on the cluster.
+Delete the cluster.
 
