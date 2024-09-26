@@ -74,8 +74,8 @@ with models.DAG(
         image_version='2.0',
         master_machine_type='e2-standard-2',
         worker_machine_type='e2-standard-2',
-        master_disk_size_gb=500,  # Reduced master disk size
-        worker_disk_size_gb=500 ) # Reduced worker disk size
+        master_disk_size=100,  # Reduced master disk size
+        worker_disk_size=100 ) # Reduced worker disk size
     
 
     # Run the Hadoop wordcount example installed on the Cloud Dataproc cluster
