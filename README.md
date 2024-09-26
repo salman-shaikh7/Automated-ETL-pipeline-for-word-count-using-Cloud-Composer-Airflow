@@ -130,3 +130,37 @@ Task Dependencies:
 *   Run Hadoop word count on the cluster.
 *   Delete the cluster.
 
+
+## Task 4 . Setting Airflow variables
+
+Airflow variables are an Airflow-specific concept that is distinct from environment variables.
+
+These variable will be consumed by our code while exceuting workflows 
+
+They are seprate for seprate dag/workflows
+
+We will add these variable by going into admin tab in airflow UI. 
+
+![alt text](<screenshot/Dag workflow variable screenshots.png>)
+
+<br>
+
+## Task 5. Uploading the DAG to Cloud Storage
+
+We will use cloud console to copy workflow/dag code python file into dags folder in gcp
+
+```powershell
+gcloud storage cp dags.py gs://us-central1-myairflowenv702-23edf356-bucket/dags
+```
+
+When a DAG file is added to the DAGs folder, Cloud Composer adds the DAG to Airflow and schedules it automatically. DAG changes occur within 3-5 minutes.
+
+
+## TASK 6 : Monitor 
+
+We can monitor dag in airflow UI
+
+![!\[alt text`\](image.png)](<screenshot/Dag Flow map.png>)
+
+
+![!\[alt text\](image.png)](screenshot/monitor.png)
