@@ -61,23 +61,39 @@ gcloud services enable container.googleapis.com
 gcloud services enable composer.googleapis.com
 
 ```
-
-
+![alt text](image.png)
+<br>
+<br>
 
 
 
 
 ## Task 2. Create Cloud Composer environment
 
+### STEP 1 : Create Cloud Composer environment
 
+We will create this bucket using Google cloud UI 
 
+Below properties 
 
-### Create a Cloud Storage bucket
+| Property | Value | 
+|----------|----------|
+| Name   | myairflowenv7028  | 
+| Location   | us-central1   | 
+| Image Versio   | composer-3-airflow-n.n.n-build.n    | 
+
+![alt text](<screenshot/airflow ui.png>)
+
+![alt text](screenshot/airflow_env_config.png)
+
+### SETP 2 : Create a Cloud Storage bucket
 
 Create a Cloud Storage bucket in your project. This bucket will be used as output for the Hadoop job from Dataproc.
 
+We will create this bucket using Google cloud UI 
 
-## Task 3. Airflow and core concepts
+![alt text](screenshot/buckt_created_ss.png)
+
 
 ## Task 4. Defining the workflow
 
