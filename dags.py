@@ -56,7 +56,7 @@ default_dag_args = {
 
 # [START composer_hadoop_schedule]
 with models.DAG(
-        'composer_hadoop_tutorial',
+        'composer_dag_for_wordcount',
         # Continue to run DAG once per day
         schedule_interval=datetime.timedelta(days=1),
         default_args=default_dag_args) as dag:
