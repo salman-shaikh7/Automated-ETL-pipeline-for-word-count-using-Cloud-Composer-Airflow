@@ -17,3 +17,70 @@ In this project we will use Google Cloud console to set up a Cloud Composer envi
 
 
 
+
+## Task 1 : Setting up Environment 
+
+### STEP 1 : Activate Cloud Shell & Autheticate 
+
+```bash
+
+gcloud auth login
+gcloud config set project myprojectid7028
+
+
+export PROJECT_ID=$(gcloud config get-value project)
+echo $PROJECT_ID
+
+
+export PROJECT_NUMBER=$(gcloud projects describe $PROJECT_ID --format="value(projectNumber)")
+echo $PROJECT_NUMBER
+
+
+gcloud projects add-iam-policy-binding $PROJECT_ID --mem
+ber=serviceAccount:$PROJECT_NUMBER-compute@developer.gserviceaccount.com --role=roles/composer.worker
+
+
+
+
+gcloud services enable artifactregistry.googleapis.com
+gcloud services enable container.googleapis.com
+gcloud services enable composer.googleapis.com
+
+
+gcloud services enable artifactregistry.googleapis.com
+gcloud services enable container.googleapis.com
+gcloud services enable composer.googleapis.com
+
+```
+
+
+![alt text](screenshot/image.png)
+
+
+
+## Task 2. Create Cloud Composer environment
+
+
+
+
+### Create a Cloud Storage bucket
+
+Create a Cloud Storage bucket in your project. This bucket will be used as output for the Hadoop job from Dataproc.
+
+
+## Task 3. Airflow and core concepts
+
+## Task 4. Defining the workflow
+
+Now let's discuss the workflow you'll be using. 
+
+loud Composer workflows are comprised of DAGs (Directed Acyclic Graphs). DAGs are defined in standard Python files that are placed in Airflow's DAG_FOLDER. 
+
+Airflow will execute the code in each file to dynamically build the DAG objects. 
+
+You can have as many DAGs as you want, each describing an arbitrary number of tasks. 
+
+In general, each one should correspond to a single logical workflow.
+
+
+## Task 5. Viewing environment information
