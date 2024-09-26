@@ -123,10 +123,10 @@ delete_dataproc_cluster: Deletes the Dataproc cluster after job completion (or f
 Task Dependencies:
 
 5.  Ensures tasks run in order: cluster creation -> word count execution -> cluster deletion.
-Simplified Flow:
 
-6.  DAG starts.
-Create Dataproc cluster.
-Run Hadoop word count on the cluster.
-Delete the cluster.
+**Simplified Flow:**
+*  DAG starts.
+*  Create Dataproc cluster.
+*   Run Hadoop word count on the cluster.
+*   Delete the cluster.
 
