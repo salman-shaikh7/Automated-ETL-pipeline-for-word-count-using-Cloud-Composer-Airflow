@@ -12,7 +12,6 @@ from airflow import models
 from airflow.contrib.operators import dataproc_operator
 from airflow.utils import trigger_rule
 
-.
 output_file = os.path.join(
     models.Variable.get('gcs_bucket'), 'wordcount',
     datetime.datetime.now().strftime('%Y%m%d-%H%M%S')) + os.sep
