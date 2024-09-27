@@ -118,10 +118,11 @@ DAG Definition:
 
 
 4.  Task Definitions: 
-*  create_dataproc_cluster: Creates a Dataproc cluster using specified configurations.
-*  run_dataproc_hadoop: Executes the Hadoop word count job on the created cluster.
-*  delete_dataproc_cluster: Deletes the Dataproc cluster after job completion (or failure).
+  *  create_dataproc_cluster: Creates a Dataproc cluster using specified configurations.
+  *  run_dataproc_hadoop: Executes the Hadoop word count job on the created cluster.
+  *  delete_dataproc_cluster: Deletes the Dataproc cluster after job completion (or failure).
 
+<br>
 
 5.  Ensures tasks run in order: cluster creation -> word count execution -> cluster deletion.
 
