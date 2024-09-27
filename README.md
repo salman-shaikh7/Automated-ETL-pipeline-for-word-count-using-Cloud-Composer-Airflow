@@ -115,12 +115,13 @@ Sets up default DAG arguments like start date, retry behavior, and project ID.
 DAG Definition:
 
 3.  Creates a DAG named 'composer_dag_for_wordcount' scheduled to run daily.
-Task Definitions:
 
-4.  create_dataproc_cluster: Creates a Dataproc cluster using specified configurations.
-run_dataproc_hadoop: Executes the Hadoop word count job on the created cluster.
-delete_dataproc_cluster: Deletes the Dataproc cluster after job completion (or failure).
-Task Dependencies:
+
+4.  Task Definitions: 
+*  create_dataproc_cluster: Creates a Dataproc cluster using specified configurations.
+*  run_dataproc_hadoop: Executes the Hadoop word count job on the created cluster.
+*  delete_dataproc_cluster: Deletes the Dataproc cluster after job completion (or failure).
+
 
 5.  Ensures tasks run in order: cluster creation -> word count execution -> cluster deletion.
 
